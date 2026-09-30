@@ -1,0 +1,12 @@
+import unittest
+
+from main import run_simulation
+
+class TestSimulation(unittest.TestCase):
+    def test_simulation(self):
+        # Example test case
+        result = run_simulation()
+        self.assertIsNotNone(result)
+
+if __name__ == '__main__':
+    unittest.main()

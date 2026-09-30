@@ -1,0 +1,28 @@
+import argparse
+from portfolio_management import manage_portfolio
+from monte_carlo import simulate_monte_carlo
+from tax_loss_harvesting import harvest_gains
+from reporting import generate_report
+
+def run_simulation():
+    # Load input data
+    input_data = load_input_data()
+
+    # Manage portfolio
+    portfolio = manage_portfolio(input_data)
+
+    # Simulate Monte Carlo
+    results = simulate_monte_carlo(portfolio)
+
+    # Harvest gains
+    harvest_gains(results)
+
+    # Generate report
+    generate_report(results)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', type=str, required=True, help='Path to input file')
+    parser.add_argument('--output', type=str, required=True, help='Path to output file')
+    args = parser.parse_args()
+    run_simulation(args.input, args.output)
